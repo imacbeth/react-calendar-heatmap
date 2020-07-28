@@ -158,7 +158,7 @@ class CalendarHeatmap extends React.Component {
 
   getTransformForWeekdayLabels() {
     if (this.props.horizontal) {
-      return `translate(${SQUARE_SIZE}, ${this.getMonthLabelSize()})`;
+      return `translate(0, ${this.getMonthLabelSize()})`;
     }
     return null;
   }
@@ -302,11 +302,11 @@ class CalendarHeatmap extends React.Component {
         this.props.horizontal ? '' : `${CSS_PSEDUO_NAMESPACE}small-text`
       } ${CSS_PSEDUO_NAMESPACE}weekday-label`;
       // eslint-disable-next-line no-bitwise
-      return dayIndex & 1 ? (
+      return (
         <text key={`${x}${y}`} x={x} y={y} className={cssClasses}>
           {weekdayLabel}
         </text>
-      ) : null;
+      )
     });
   }
 
